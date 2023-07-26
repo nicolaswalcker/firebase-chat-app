@@ -1,0 +1,102 @@
+// ==========================================================================
+// ? Radius
+// Ex.: border-radius: $radius-lg;
+// ==========================================================================
+$radius-none: 0; // 0px
+$radius-sm: 0.125rem; // 2px
+$radius-normal: 0.25rem; // 4px
+$radius-md: 0.375rem; // 6px
+$radius-lg: 0.5rem; // 8px
+$radius-full: 9999px; // rounded
+
+// ==========================================================================
+// ? Border Size
+// Ex.: border-width: $border-1;
+// ==========================================================================
+$border-nome: 0;
+$border-1: 0.06rem;
+$border-2: 0.12rem;
+$border-3: 0.18rem;
+
+// ==========================================================================
+// ? Font Type
+// Ex.: font-family: $font-sans;
+// ==========================================================================
+$font-sans: arial, sans-serif;
+
+// ==========================================================================
+// ? Font Weight
+// Ex.: font-weight: $font-thin;
+// ==========================================================================
+$font-hairline: 100;
+$font-thin: $font-hairline; // only fallback, ALWAYS USE $font-hairline
+$font-light: 300;
+$font-regular: 400;
+$font-normal: $font-regular; // only fallback, ALWAYS USE $font-regular
+$font-bold: 700;
+$font-black: 900;
+
+// ==========================================================================
+// ? Size
+// Ex.: font-size: $text-sm;
+// ==========================================================================
+$text-xs: 0.75rem; // 12px
+$text-sm: 0.875rem; // 14px
+$text-base: 1rem; // 16px
+$text-lg: 1.125rem; // 18px
+$text-xl: 1.25rem; // 20px
+$text-2xl: 1.5rem; // 24px
+$text-3xl: 1.875rem; // 30px
+$text-4xl: 2.25rem; // 36px
+$text-5xl: 3rem; // 48px
+$text-6xl: 4rem; // 64px
+
+// ==========================================================================
+// ? Line height
+// Ex.: line-height: $leading-tight;
+// ==========================================================================
+$leading-none: 1;
+$leading-tight: 1.25;
+$leading-snug: 1.375;
+$leading-normal: 1.5;
+$leading-relaxed: 1.625;
+$leading-loose: 2;
+
+// ==========================================================================
+// ? z-index
+// Ex.: z-index: $above;
+// ==========================================================================
+$below: -1;
+$default: 1;
+$dropdown: 200;
+$overlay: 300;
+$modal: 400;
+$above: 500;
+
+// ==========================================================================
+// ? Letter Spacing
+// Ex.: letter-spacing: $tracking-tight;
+// ==========================================================================
+$tracking-tighter: -0.05em; // -0.05 * (tamanho da fonte)
+$tracking-tight: -0.025em; // -0.025 * (tamanho da fonte)
+$tracking-normal: 0; // 0
+$tracking-wide: 0.025em; // 0.025 * (tamanho da fonte)
+$tracking-wider: 0.05em; // 0.05 * (tamanho da fonte)
+$tracking-widest: 0.1em; // 0.1 * (tamanho da fonte)
+
+// ==========================================================================
+// ? Transitions
+// Ex.: transition: $transition-short;
+// ==========================================================================
+$transition-duration: 305ms;
+$transition-duration-complex: 385ms;
+$transition-duration-entrance: 235ms;
+$transition-duration-exit: 205ms;
+$transition-duration-fast: 150ms;
+$transition-function-ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$transition-function-ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+$transition-function-ease-in-back: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+$transition-function-ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$transition-function-ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$transition-function-ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+$transition-function-elastic: cubic-bezier(0.175, 0.885, 0.41, 1.46);
