@@ -27,5 +27,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-emoji"
     }
+  },
+  "dependencies": {
+    "firebase": "^10.1.0"
   }
 }

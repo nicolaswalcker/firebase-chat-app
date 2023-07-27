@@ -7,7 +7,34 @@
     <title>Vite App</title>
   </head>
   <body>
-    <main class="main"></main>
+    <main class="main">
+      <aside class="aside">
+        <section class="aside__users" id="js-users">
+        </section>
+        <button class="aside__change">Trocar de conta</button>
+      </aside>
+      <section class="chat">
+        <header class="chat__header">
+        </header>
+        <div class="chat__box" id="js-messages">
+          <!-- <article class="chat__box__message user">
+            <p class="chat__box__message__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+            <span class="chat__box__hour">12:15</span>
+          </article>
+          <article class="chat__box__message me">
+            <p class="chat__box__message__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+            <span class="chat__box__hour">12:15</span>
+          </article> -->
+        </div>
+        <form class="chat__form" id="js-form">
+          <textarea
+            class="chat__form__input"
+            placeholder="Type a message"
+            id="js-message"
+          ></textarea>
+          <button type="submit" class="chat__form__button" id="js-send">Send</button>
+      </section>
+    </main>
     <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>
