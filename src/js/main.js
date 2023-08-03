@@ -2,20 +2,61 @@
 import "../assets/scss/main.scss";
 
 import { set, ref, push, onChildAdded } from "firebase/database";
-import db from "./firebaseConfig";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { db, auth } from "./firebaseConfig";
 
-let userName = localStorage.getItem("username");
-let userEmail = localStorage.getItem("useremail");
+const userId = localStorage.getItem("uid");
+let userName;
+let userEmail;
 
 const messageContent = document.getElementById("js-message");
 const form = document.getElementById("js-form");
 const messagesList = document.getElementById("js-messages");
+const sendMessageButton = document.getElementById("js-send");
 const messagesListRef = ref(db, "messages/");
-if (userName && userEmail) {
+
+const createUser = async (email, password) => {
   userName = prompt("Please enter your name");
+  try {
+    const res = await createUserWithEmailAndPassword(auth, email, password);
+    userEmail = res.user.email;
+    updateProfile(auth.currentUser, {
+      displayName: userName,
+    });
+    localStorage.setItem("userId", res.user.uid);
+    localStorage.setItem("username", userName);
+
+    Promise.resolve(res);
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+const login = async (email, password) => {
+  try {
+    const res = await signInWithEmailAndPassword(auth, email, password);
+    localStorage.setItem("userId", res.user.uid);
+    userEmail = res.user.email;
+  } catch (error) {
+    if (error.code === "auth/user-not-found") {
+      createUser(email, password);
+      return;
+    }
+    throw new Error(error.message);
+  }
+};
+
+if (!userId) {
   userEmail = prompt("Please enter your email");
-  localStorage.setItem("username", userName);
-  localStorage.setItem("useremail", userEmail);
+  const userPassword = prompt("Please enter your password");
+
+  if (userEmail && userPassword) {
+    login(userEmail, userPassword, userName);
+  }
 }
 
 const sendMessage = (name, email) => {
@@ -50,7 +91,20 @@ const loadMessages = () => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  if (messageContent.value === "") {
+    return;
+  }
   sendMessage(userName, userEmail);
+});
+
+sendMessageButton.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    if (messageContent.value === "") {
+      return;
+    }
+    sendMessage(userName, userEmail);
+  }
 });
 
 loadMessages();
